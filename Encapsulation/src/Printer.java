@@ -27,7 +27,7 @@ public class Printer
     // This method adds toner to printer
     public int addToner(int tonerAmount)
     {
-        if (tonerLevel > 0 && tonerLevel <= 100)
+        if (tonerAmount > 0 && tonerAmount <= 100)
         {
             if (this.tonerLevel + tonerAmount > 100)
             {
@@ -48,7 +48,7 @@ public class Printer
         int pagesToPrint = pages;                   // initialize pages to print
         if (this.duplex)
         {
-            pagesToPrint /= 2;                      // set duplex printing
+            pagesToPrint = ((pages / 2) + (pages % 2));     // set duplex printing
             System.out.println("Printing in duplex mode");  // print duplex print mode statement
         }
         this.pagesPrinted += pagesToPrint;          // add pages to print to pages printed
